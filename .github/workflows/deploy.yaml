@@ -1,16 +1,17 @@
 name: Deploy NodeJS Application
 
 on:
-  workflow_run:
-    workflows: ['CI']
-    types:
-      - completed
+  push:
     branches:
       - main
 
 jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yaml
+
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: ci
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
