@@ -19,6 +19,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /root/nodejs-cicd
+            cd /home/ubuntu/nodejs-cicd
             git pull origin main
             docker compose up -d --build
