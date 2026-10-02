@@ -17,6 +17,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up the Runner via script
+        run: |
+          chmod + ./scripts/startup.sh
+          bash ./scripts/startup.sh
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v0.1.6
         with:
