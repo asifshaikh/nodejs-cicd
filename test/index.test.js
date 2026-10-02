@@ -22,7 +22,7 @@ test('GET / returns the greeting', async () => {
 
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), {
-    message: 'Hello, World! From CI/CD',
+    message: 'Hello, World! From CI/CD with GitHub Actions',
   });
 });
 
